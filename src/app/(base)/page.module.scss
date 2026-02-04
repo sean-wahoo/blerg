@@ -1,0 +1,54 @@
+@use "@/styling/colors.scss" as c;
+
+main.main {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: 54px;
+
+  > section {
+    padding: 1rem;
+    width: min(1024px, 90%);
+    margin-inline: auto;
+    font-size: 1.8rem;
+
+    > * {
+      margin-block: 18px;
+
+      a {
+        color: c.$steel_blue;
+        &:visited {
+          color: c.$other_purple;
+        }
+        &:hover {
+          text-decoration: underline;
+          text-decoration-thickness: 2px;
+          text-underline-offset: 4px;
+        }
+      }
+    }
+    > p > span::after {
+      content: "|";
+      animation: cursor-blink 1s infinite;
+      margin-left: -4px;
+    }
+  }
+}
+
+@keyframes cursor-blink {
+  from {
+    opacity: 0%;
+  }
+  24% {
+    opacity: 0%;
+  }
+  25% {
+    opacity: 100%;
+  }
+  75% {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
+}

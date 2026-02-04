@@ -1,0 +1,11 @@
+@use "@/styling/colors.scss" as c;
+
+footer.footer {
+  padding: 1rem;
+  display: flex;
+  flex-flow: row-nowrap;
+  justify-content: center;
+  align-items: center;
+  > span.copyright {
+  }
+}

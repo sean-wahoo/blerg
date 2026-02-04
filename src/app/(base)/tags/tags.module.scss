@@ -1,0 +1,41 @@
+@use "@/styling/colors.scss" as c;
+
+.tags_page {
+  margin: 2rem auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  > form {
+    > input {
+      line-height: 1.8;
+      font-size: 1rem;
+      font-family: Inter;
+      padding: 0.6rem 1rem;
+      border: 2px solid c.$bg2;
+      border-radius: 4px;
+      background-color: c.$bg3;
+      transition: border-color 0.2s ease;
+
+      &:focus {
+        outline: none;
+        border: 2px solid c.$bone;
+      }
+    }
+    > div.tags_area {
+      display: flex;
+      flex-flow: row wrap;
+      width: auto;
+
+      > span.tag {
+        cursor: pointer;
+        background-color: c.$bg2;
+        font-size: 0.8rem;
+        margin: 0.4rem;
+        padding: 0.3rem 0.5rem;
+        border-radius: 4px;
+      }
+    }
+  }
+}

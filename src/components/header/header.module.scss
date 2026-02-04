@@ -1,0 +1,116 @@
+@use "@/styling/colors.scss" as c;
+
+$header_height: 54px;
+
+header.header {
+  background-color: inherit;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  height: $header_height;
+  > nav.navbar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    > a {
+      display: flex;
+      color: var(--foreground);
+      padding: 0.2rem 0.6rem;
+      font-size: 18px;
+
+      &.logo {
+        > h1 {
+          &:nth-of-type(2) {
+            color: c.$spicy_paprika;
+          }
+          &:nth-of-type(3) {
+            color: c.$steel_blue;
+          }
+        }
+      }
+    }
+    > ul {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-evenly;
+      list-style-type: none;
+      flex-grow: 1;
+
+      > li {
+        &:has(> a.sean) {
+          // margin-left: auto;
+          align-self: flex-end;
+        }
+        > a {
+          &:hover {
+            text-decoration: underline;
+          }
+          &:not(.logo) {
+            font-family: Inter;
+          }
+
+          &.sean {
+            color: c.$spicy_paprika;
+
+            &::before {
+              content: "-> ";
+              white-space: pre;
+              color: var(--foreground);
+            }
+          }
+        }
+      }
+
+      &.links_dropdown {
+        z-index: 15;
+        padding: 0.4rem 1rem;
+        position: absolute;
+        display: flex;
+        flex-flow: column nowrap;
+        right: 0.5rem;
+        top: calc(4px + $header_height);
+        background-color: var(--background);
+        text-align: right;
+        opacity: 0;
+        top: 24px;
+
+        border: 1px solid c.$bg2;
+        border-radius: 4px;
+
+        transition-property: opacity margin-bottom;
+        transition-duration: 0.2s;
+        transition-behavior: allow-discrete;
+        visibility: hidden;
+
+        > li {
+          margin-block: 4px;
+        }
+
+        &.open {
+          opacity: 1;
+          visibility: visible;
+          top: calc(4px + $header_height);
+        }
+
+        &:not(.open) {
+          top: calc(calc(4px + $header_height) - 12px);
+        }
+      }
+    }
+
+    > button.menu_button {
+      width: 42px;
+      background: inherit;
+      padding: 0.4rem;
+      border: 0;
+      margin-left: auto;
+      cursor: pointer;
+
+      > svg {
+        color: var(--foreground);
+      }
+    }
+  }
+}

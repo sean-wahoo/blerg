@@ -1,0 +1,36 @@
+@use "@/styling/colors.scss" as c;
+div.pages_list {
+  display: flex;
+  flex-flow: row nowrap;
+  max-width: 824px;
+  background-color: c.$bg2;
+  margin: 2rem auto;
+  padding: 16px;
+
+  font-size: 20px;
+  overflow-x: auto;
+  gap: 1rem;
+
+  > div.page_item {
+    color: var(--foreground);
+    background-color: c.$bg3;
+    padding: 0.8rem;
+    min-width: 240px;
+    border-radius: 4px;
+    > p.description {
+      font-size: 0.75rem;
+    }
+
+    > header {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+
+      > p {
+        font-size: 0.675rem;
+      }
+    }
+  }
+}

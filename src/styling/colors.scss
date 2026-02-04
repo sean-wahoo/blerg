@@ -1,0 +1,15 @@
+@use "sass:color" as _c;
+
+$black: #1b1c22;
+$spicy_paprika: #cf5c36;
+$fern: #568259;
+$bone: #e0ddcf;
+$steel_blue: #7698b3;
+$vintage_grape: #533a71;
+$other_purple: #6d4c94;
+
+$bg1: $black;
+$bg2: _c.adjust($black, $lightness: -2%);
+$bg3: _c.adjust($black, $lightness: -1%);
+$bg4: _c.adjust($black, $lightness: 1%);
+$fg1: $bone;
