@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
   rewrites: async () => [
     {
       source: "/blog/images/:path*",
-      destination: `${process.env.NEXT_PUBLIC_VERCEL_URL}/blog/images/:path*`,
+      destination: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/blog/images/:path*`,
     },
   ],
 };
