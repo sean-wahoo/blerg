@@ -1,17 +1,11 @@
 "use client";
 
-import { Playfair_Display, Sanchez } from "next/font/google";
+import { Sanchez } from "next/font/google";
 import styles from "./header.module.scss";
 import { c } from "@/lib/utils";
 import { mediaQuery } from "@/lib/utils/client";
 import Link from "next/link";
-import {
-  MouseEventHandler,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import { MouseEventHandler, useEffect, useState } from "react";
 
 const sanchez = Sanchez({
   variable: "--font-sanchez",
@@ -19,8 +13,8 @@ const sanchez = Sanchez({
 });
 
 const links = [
-  <Link key="all" href="/all">
-    all
+  <Link key="all" href="/">
+    home
   </Link>,
   <Link key="recent" href="/recent">
     recent
@@ -40,7 +34,7 @@ const LinksDropdown = ({
   navOpen: boolean;
   toggleNav: () => void;
 }) => {
-  const onButtonClick: MouseEventHandler = (e) => {
+  const onButtonClick: MouseEventHandler = () => {
     toggleNav();
   };
   return (
@@ -90,8 +84,6 @@ const LinksInline = () => {
 const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
-
-  const linksDropdownRef = useRef<HTMLUListElement>(null);
 
   const toggleMenuFunc = () => {
     setNavOpen(!navOpen);

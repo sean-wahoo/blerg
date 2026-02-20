@@ -1,36 +1,59 @@
 @use "@/styling/colors.scss" as c;
+@use "@/styling/mixins.scss" as m;
+@use "@/styling/responsive.scss" as r;
 div.pages_list {
-  display: flex;
-  flex-flow: row nowrap;
-  max-width: 824px;
-  background-color: c.$bg2;
+  &.filtered {
+    display: flex;
+    flex-flow: column nowrap;
+    max-height: 900px;
+    overflow-y: auto;
+    width: 480px;
+  }
+  &:not(.filtered) {
+    display: flex;
+    max-width: 824px;
+    background-color: c.$bg2;
+  }
+
   margin: 2rem auto;
   padding: 16px;
+  overflow-x: auto;
 
   font-size: 20px;
-  overflow-x: auto;
   gap: 1rem;
-
-  > div.page_item {
-    color: var(--foreground);
-    background-color: c.$bg3;
-    padding: 0.8rem;
-    min-width: 240px;
-    border-radius: 4px;
+}
+div.page_item {
+  font-family: var(--font-domine);
+  &:not(:is(.pages_list > .page_item)) {
+    margin-block: 12px;
+    margin-inline: auto;
+  }
+  color: var(--foreground);
+  background-color: c.$bg3;
+  max-width: 600px;
+  &:is(.pages_list.filtered > div.page_item) {
+    background-color: c.$bg2;
+  }
+  padding: 0.8rem;
+  min-width: 240px;
+  border-radius: 4px;
+  > main {
+    font-size: 0.75rem;
     > p.description {
-      font-size: 0.75rem;
+      max-width: max(400px, 80%);
+      margin-block: 12px;
+      @include m.truncate-text(2);
     }
+  }
 
-    > header {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 8px;
+  > header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: baseline;
 
-      > p {
-        font-size: 0.675rem;
-      }
+    > p {
+      font-size: 0.675rem;
     }
   }
 }

@@ -13,7 +13,7 @@ export const mediaQuery = (breakpoint: Breakpoint) => {
 
   switch (breakpoint) {
     case "mobile":
-      query = "(width <= 476px)";
+      query = "(width <= 576px)";
       break;
     case "desktop":
       query = "(width <= 1024px)";

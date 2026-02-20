@@ -3,7 +3,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <small className={styles.copyright}>
-        © {new Date().getFullYear()} yo mama. All rights reserved
+        © {new Date().getFullYear()} Sean Reichel. All rights reserved
       </small>
     </footer>
   );

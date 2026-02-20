@@ -1,6 +1,5 @@
-import styles from "./page.module.scss";
 import { getMDXPages } from "@/lib/utils";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import { cache } from "react";
 
 interface PathProps {
@@ -17,7 +16,7 @@ const MDXPage = async ({ params }: { params: Promise<PathProps> }) => {
   const { Page, metadata } = await getPageData(slug);
   if (metadata.no_header) {
     return (
-      <section className={styles.markdown_page}>
+      <section>
         <header />
         <main>
           <Page />
@@ -26,7 +25,7 @@ const MDXPage = async ({ params }: { params: Promise<PathProps> }) => {
     );
   }
   return (
-    <section className={styles.markdown_page}>
+    <section>
       <header>
         <h1>{metadata.title}</h1>
         <p>
@@ -46,7 +45,6 @@ export default MDXPage;
 
 export async function generateMetadata(
   { params }: { params: Promise<PathProps> },
-  // parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const { slug } = await params;
   const { metadata } = await getPageData(slug);

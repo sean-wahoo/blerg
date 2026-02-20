@@ -1,4 +1,5 @@
 @use "@/styling/colors.scss" as c;
+@forward "@/mdx.module.scss";
 
 :root {
   --background: #{c.$fg1};

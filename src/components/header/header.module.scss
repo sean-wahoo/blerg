@@ -34,7 +34,10 @@ header.header {
     > ul {
       display: flex;
       flex-flow: row nowrap;
-      justify-content: space-evenly;
+      // justify-content: space-evenly;
+      $gap: 72px;
+      column-gap: $gap;
+      margin-left: calc($gap / 2);
       list-style-type: none;
       flex-grow: 1;
 

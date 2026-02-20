@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "@/styling/colors.scss" as c;
 
 .tags_page {
@@ -8,33 +9,63 @@
   align-items: center;
 
   > form {
-    > input {
-      line-height: 1.8;
-      font-size: 1rem;
-      font-family: Inter;
-      padding: 0.6rem 1rem;
-      border: 2px solid c.$bg2;
-      border-radius: 4px;
-      background-color: c.$bg3;
-      transition: border-color 0.2s ease;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    > .input_container {
+      width: auto;
+      display: relative;
+      input {
+        line-height: 1.8;
+        font-size: 1rem;
+        font-family: Inter;
+        padding: 0.6rem 1rem;
+        border: 2px solid c.$bg2;
+        border-radius: 4px;
+        background-color: c.$bg3;
+        transition: border-color 0.2s ease;
 
-      &:focus {
-        outline: none;
-        border: 2px solid c.$bone;
+        &:focus {
+          outline: none;
+          border: 2px solid c.$bone;
+        }
+      }
+      .tag_submit_button {
+        background: none;
+        border: none;
+        margin: 4px 12px;
+        font-size: 26px;
+        // position: absolute;
+        // margin-top: 18px;
+        // margin-right: 18px;
+
+        &:not(.shown) {
+          visibility: hidden;
+        }
+
+        .submitting {
+          opacity: 0;
+          translate: -18px;
+        }
       }
     }
     > div.tags_area {
       display: flex;
       flex-flow: row wrap;
       width: auto;
+      max-width: 400px;
+      justify-content: center;
+      margin-inline: auto;
 
       > span.tag {
+        font-family: var(--font-iosevka);
         cursor: pointer;
         background-color: c.$bg2;
         font-size: 0.8rem;
         margin: 0.4rem;
         padding: 0.3rem 0.5rem;
         border-radius: 4px;
+        align-items: center;
       }
     }
   }

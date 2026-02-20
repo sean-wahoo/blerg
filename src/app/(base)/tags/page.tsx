@@ -1,13 +1,28 @@
 "use client";
-import { getPageTags } from "@/lib/utils";
+import { c, getPageTags, MetaType } from "@/lib/utils";
 import styles from "./tags.module.scss";
-import { FormEventHandler, UIEventHandler, useEffect, useState } from "react";
-import PagesByTags from "./pagesByTags";
-// const pageTags = await getPageTags();
+import {
+  ChangeEventHandler,
+  FormEventHandler,
+  UIEventHandler,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import PagesList from "@/components/pagesList";
+import { useSearchParams } from "next/navigation";
 const TagsPage = () => {
   const [pageTags, setPageTags] = useState<Map<string, string[]>>();
   const [pageTagValues, setPageTagValues] = useState<string[]>([]);
   const [searchTags, setSearchTags] = useState<string[]>([]);
+
+  const searchParams = useSearchParams();
+
+  const tagInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setSearchTags(searchParams.getAll("tag"));
+  }, [searchParams]);
 
   useEffect(() => {
     getPageTags().then((tags) => {
@@ -26,6 +41,17 @@ const TagsPage = () => {
     });
   }, []);
 
+  const [downArrow, setDownArrow] = useState<boolean>(false);
+
+  const onTagInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    if (e.currentTarget.value.length > 0) {
+      setDownArrow(true);
+    } else {
+      setDownArrow(false);
+    }
+  };
+
+  const submitButtonRef = useRef<HTMLButtonElement>(null);
   const onTagInputSubmit: FormEventHandler = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
@@ -33,11 +59,12 @@ const TagsPage = () => {
     const splitValue = inputValue.split(" ").filter((tag) => tag.length);
     const newSearchTags = [...searchTags];
     for (const value of splitValue) {
-      if (!searchTags.includes(value)) {
+      if (!searchTags.includes(value) && searchTags.length < 5) {
         newSearchTags.push(value);
       }
     }
     (document.getElementById("page-search") as HTMLInputElement).value = "";
+    setDownArrow(false);
     setSearchTags(newSearchTags);
   };
 
@@ -46,6 +73,13 @@ const TagsPage = () => {
     const newSearchTags = searchTags.filter((tag) => tag !== tagValue);
     console.log({ tagValue, newSearchTags });
     setSearchTags(newSearchTags);
+  };
+
+  const tagsFilterFunc = ([, metadata]: [page: string, metadata: MetaType]) => {
+    if (!searchTags.length || !metadata.tags?.length) {
+      return true;
+    }
+    return searchTags.every((tag) => metadata.tags?.includes(tag));
   };
 
   return (
@@ -58,12 +92,28 @@ const TagsPage = () => {
             ))}
           </datalist>
         ) : null}
-        <input
-          id="page-search"
-          name="page-search"
-          type="text"
-          list="tags-list"
-        />
+        <div className={styles.input_container}>
+          <button
+            ref={submitButtonRef}
+            type="submit"
+            className={c(
+              styles.tag_submit_button,
+              downArrow ? styles.shown : "",
+            )}
+          >
+            ⇣
+          </button>
+          <input
+            id="page-search"
+            name="page-search"
+            type="text"
+            list="tags-list"
+            defaultValue={searchParams.get("tag") || ""}
+            ref={tagInputRef}
+            onChange={onTagInputChange}
+            className={downArrow ? styles.down_arrow : ""}
+          />
+        </div>
         <div className={styles.tags_area}>
           {searchTags.map((tag) => (
             <span
@@ -77,7 +127,7 @@ const TagsPage = () => {
           ))}
         </div>
       </form>
-      <PagesByTags tags={searchTags} />
+      <PagesList filterFunc={tagsFilterFunc} />
     </section>
   );
 };

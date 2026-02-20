@@ -1,12 +1,17 @@
+import "dotenv/config";
+
 import type { Metadata } from "next";
-import { Inter, Domine } from "next/font/google";
+import { Arimo, Inter, Domine } from "next/font/google";
 import localFont from "next/font/local";
 import "@/styling/globals.scss";
-import { c } from "@/lib/utils";
+import { c, MetaType } from "@/lib/utils";
 import JotaiProvider from "./jotaiProvider";
 import { PageMetadata } from "@/stores/pages";
 import fs from "node:fs/promises";
 
+const arimo = Arimo({
+  variable: "--font-arimo",
+});
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -38,7 +43,7 @@ export default async function RootLayout({
       return file.replace(".mdx", "");
       // .replace(/!^[a-zA-Z0-9_-]*$/g, "-")
     });
-  const pagesMap = new Map<string, PageMetadata>();
+  const pagesMap = new Map<string, MetaType>();
   for (const page of fileNames) {
     const { metadata } = await import(`@/markdown/${page}.mdx`);
     pagesMap.set(page, metadata);
@@ -50,7 +55,15 @@ export default async function RootLayout({
     <JotaiProvider initialState={pagesMap}>
       <html lang="en">
         <body
-          className={c(inter.className, domine.className, iosevka.className)}
+          className={c(
+            inter.className,
+            inter.variable,
+            domine.className,
+            domine.variable,
+            iosevka.className,
+            iosevka.variable,
+            arimo.variable,
+          )}
         >
           {children}
         </body>

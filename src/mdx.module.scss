@@ -1,0 +1,60 @@
+.h1 {
+  font-size: 48px;
+  font-family: var(--font-domine);
+}
+.h2 {
+  font-size: 36px;
+  font-family: var(--font-domine);
+}
+.h3 {
+  font-size: 24px;
+  font-family: var(--font-domine);
+}
+.h4 {
+  font-size: 20px;
+  font-family: var(--font-domine);
+}
+.h5 {
+  font-size: 18px;
+  font-family: var(--font-domine);
+}
+.h6 {
+  font-size: 16px;
+  font-family: var(--font-domine);
+}
+.img {
+  max-width: 500px;
+  max-height: 500px;
+  margin: 12px 0 18px;
+}
+.p {
+  font-size: clamp(16px, 2vw, 18px);
+  font-family: var(--font-domine);
+  line-height: 1.4;
+  margin-block: 12px;
+
+  &:not(:has(img)) {
+    &::before {
+      content: "\00a0\00a0\00a0\00a0";
+    }
+  }
+}
+
+.img_container {
+  font-size: clamp(11px, 2vw, 15px);
+  font-family: var(--font-iosevka);
+  width: fit-content;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 18px;
+  align-items: center;
+  &:has(> img.center) {
+    margin-inline: auto;
+  }
+  &:has(> img.right) {
+    margin-inline: auto 0;
+  }
+  &:has(> img.left) {
+    margin-inline: 0 auto;
+  }
+}

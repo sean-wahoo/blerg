@@ -8,8 +8,25 @@ $steel_blue: #7698b3;
 $vintage_grape: #533a71;
 $other_purple: #6d4c94;
 
+$tag_colors: ($spicy_paprika, $fern, $steel_blue, $other_purple);
+
 $bg1: $black;
 $bg2: _c.adjust($black, $lightness: -2%);
 $bg3: _c.adjust($black, $lightness: -1%);
 $bg4: _c.adjust($black, $lightness: 1%);
+$bg5: _c.adjust($black, $lightness: -1.5%);
 $fg1: $bone;
+
+$tag1: #344638;
+$tag2: #907513;
+$tag3: #282d52;
+$tag4: #33140c;
+$tag5: #763519;
+
+$tag_colors: (
+  "tag1": $tag1,
+  "tag2": $tag2,
+  "tag3": $tag3,
+  "tag4": $tag4,
+  "tag5": $tag5,
+);

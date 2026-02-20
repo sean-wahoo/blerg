@@ -1,0 +1,38 @@
+@use "@/styling/colors.scss" as c;
+@use "@/styling/mixins.scss" as m;
+
+main.recent_items {
+  font-size: 1rem;
+}
+
+.recent_page_item {
+  font-family: var(--font-inter);
+  max-width: 480px;
+  margin: 18px auto;
+  background-color: c.$bg5;
+  padding: 10px 24px;
+  border-radius: 6px;
+
+  > header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    gap: 12px;
+
+    > .page_name {
+      font-weight: bold;
+    }
+
+    > .page_date {
+      opacity: 0.8;
+      font-size: 0.6em;
+    }
+  }
+  > main {
+    font-size: 0.7em;
+    > .page_desc {
+      opacity: 0.8;
+      @include m.truncate-text(2);
+    }
+  }
+}

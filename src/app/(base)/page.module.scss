@@ -1,10 +1,11 @@
 @use "@/styling/colors.scss" as c;
 
 main.main {
-  width: 100%;
+  width: min(724px, 100%);
   display: flex;
   flex-flow: row nowrap;
-  margin-top: 54px;
+  margin: 54px auto 0;
+  font-family: var(--font-domine);
 
   > section {
     padding: 1rem;
@@ -23,7 +24,7 @@ main.main {
         &:hover {
           text-decoration: underline;
           text-decoration-thickness: 2px;
-          text-underline-offset: 4px;
+          text-underline-offset: 2px;
         }
       }
     }
@@ -31,6 +32,20 @@ main.main {
       content: "|";
       animation: cursor-blink 1s infinite;
       margin-left: -4px;
+    }
+    > header {
+      margin-block: 6rem 4rem;
+      font-size: 1.65rem;
+      font-family: Domine;
+      > h1 {
+        font-weight: 400;
+      }
+      > p {
+        font-size: 0.6em;
+        opacity: 0.6;
+        font-weight: 500;
+        font-style: italic;
+      }
     }
   }
 }

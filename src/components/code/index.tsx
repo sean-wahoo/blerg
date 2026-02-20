@@ -1,4 +1,5 @@
 "use client";
+import styles from "./code.module.scss";
 import { ComponentPropsWithoutRef } from "react";
 import ShikiHighlighter from "react-shiki";
 
@@ -8,7 +9,12 @@ const CodeComponent = ({
   ...props
 }: ComponentPropsWithoutRef<"code"> & { language: string }) => {
   return (
-    <ShikiHighlighter {...props} language={language} theme="kanagawa-dragon">
+    <ShikiHighlighter
+      {...props}
+      className={styles.code}
+      language={language}
+      theme="kanagawa-dragon"
+    >
       {children as string}
     </ShikiHighlighter>
   );

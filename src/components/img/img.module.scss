@@ -1,0 +1,17 @@
+.img {
+  max-width: 90%;
+  height: auto;
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+
+.toggle_gif {
+  margin-left: auto;
+  cursor: pointer;
+  text-decoration: underline;
+  user-select: none;
+}
