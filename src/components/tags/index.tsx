@@ -8,7 +8,7 @@ const Tags = ({ meta }: { meta: MetaType }) => {
   const router = useRouter();
   const tagOnClick: MouseEventHandler = (e) => {
     const tag = e.currentTarget.id.replace(meta.page, "");
-    router.push(`/blog/tags?tag=${encodeURIComponent(tag)}`);
+    router.push(`/tags?tag=${encodeURIComponent(tag)}`);
   };
   return (
     <ul className={styles.page_tags}>

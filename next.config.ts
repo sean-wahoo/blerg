@@ -6,9 +6,9 @@ const nextConfig: NextConfig = {
   /* config options here */
   basePath: "/blog",
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
-  turbopack: {
-    root: "../",
-  },
+  // turbopack: {
+  //   root: "../",
+  // },
   images: {
     formats: ["image/webp"],
     remotePatterns: [
@@ -22,6 +22,10 @@ const nextConfig: NextConfig = {
   },
   assetPrefix: "/blog-static",
   rewrites: async () => [
+    {
+      source: "/",
+      destination: "/blog",
+    },
     {
       source: "/blog/images/:path*",
       destination: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/blog/images/:path*`,
