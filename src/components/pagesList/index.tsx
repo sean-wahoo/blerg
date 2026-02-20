@@ -17,7 +17,6 @@ export const PageItem = ({
   const itemRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (itemRef.current) {
-      console.log({ metadata });
       if (metadata.span) {
         itemRef.current.style.gridColumnEnd = `span ${metadata.span}`;
       }

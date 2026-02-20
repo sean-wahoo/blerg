@@ -38,7 +38,6 @@ export const getPageTags = async () => {
   for (const page of pages) {
     const { metadata } = await import(`@/markdown/${page}.mdx`);
     if ("tags" in metadata) {
-      console.log(metadata.tags);
       for (const tag of metadata.tags as string[]) {
         tags.set(page, [...(tags.get(page) ?? []), tag]);
       }

@@ -41,15 +41,12 @@ export default async function RootLayout({
     .filter((file) => !file.includes("home"))
     .map((file) => {
       return file.replace(".mdx", "");
-      // .replace(/!^[a-zA-Z0-9_-]*$/g, "-")
     });
   const pagesMap = new Map<string, MetaType>();
   for (const page of fileNames) {
     const { metadata } = await import(`@/markdown/${page}.mdx`);
     pagesMap.set(page, metadata);
   }
-
-  // console.log({ pagesMap, files });
 
   return (
     <JotaiProvider initialState={pagesMap}>

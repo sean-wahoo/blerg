@@ -13,7 +13,6 @@ const components = {
   p: ({ className, children, ...props }) => {
     for (const child of children) {
       if ("type" in { ...child }) {
-        console.log({ child });
         if (
           badBlockElements.includes(child.type) ||
           badBlockElements.includes(child.type.name)
