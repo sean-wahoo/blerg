@@ -4,7 +4,10 @@ import type { MetadataRoute } from "next";
 export default async function sitemap(props: {
   page: Promise<string>;
 }): Promise<MetadataRoute.Sitemap> {
-  const page = await props.page;
+  let page;
+  if (typeof props !== "undefined") {
+    page = await props.page;
+  }
   const metadata = await getPageMetadata(page);
   const sitemaps = [
     {
