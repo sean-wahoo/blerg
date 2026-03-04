@@ -1,7 +1,7 @@
 import "dotenv/config";
 
 import type { Metadata } from "next";
-import {  Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/next";
 import { Arimo, Inter, Domine } from "next/font/google";
 import localFont from "next/font/local";
 import "@/styling/globals.scss";
@@ -65,7 +65,7 @@ export default async function RootLayout({
         >
           {children}
         </body>
-      </Analytics>
+      </html>
     </JotaiProvider>
   );
 }
