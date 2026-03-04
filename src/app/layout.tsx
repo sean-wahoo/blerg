@@ -1,12 +1,12 @@
 import "dotenv/config";
 
 import type { Metadata } from "next";
+import {  Analytics } from "@vercel/analytics/next";
 import { Arimo, Inter, Domine } from "next/font/google";
 import localFont from "next/font/local";
 import "@/styling/globals.scss";
 import { c, MetaType } from "@/lib/utils";
 import JotaiProvider from "./jotaiProvider";
-import { PageMetadata } from "@/stores/pages";
 import fs from "node:fs/promises";
 
 const arimo = Arimo({
@@ -50,6 +50,7 @@ export default async function RootLayout({
 
   return (
     <JotaiProvider initialState={pagesMap}>
+      <Analytics />
       <html lang="en">
         <body
           className={c(
@@ -64,7 +65,7 @@ export default async function RootLayout({
         >
           {children}
         </body>
-      </html>
+      </Analytics>
     </JotaiProvider>
   );
 }
