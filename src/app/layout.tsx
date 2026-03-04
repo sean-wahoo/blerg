@@ -50,7 +50,6 @@ export default async function RootLayout({
 
   return (
     <JotaiProvider initialState={pagesMap}>
-      <Analytics />
       <html lang="en">
         <body
           className={c(
@@ -64,6 +63,7 @@ export default async function RootLayout({
           )}
         >
           {children}
+          <Analytics />
         </body>
       </html>
     </JotaiProvider>
