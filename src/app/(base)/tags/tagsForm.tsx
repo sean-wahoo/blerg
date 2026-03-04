@@ -4,7 +4,6 @@ import styles from "./tags.module.scss";
 import {
   ChangeEventHandler,
   FormEventHandler,
-  Suspense,
   UIEventHandler,
   useEffect,
   useRef,

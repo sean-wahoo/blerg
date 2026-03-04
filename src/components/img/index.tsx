@@ -1,5 +1,5 @@
 "use client";
-import NextImage, { ImageLoader } from "next/image";
+import NextImage from "next/image";
 import {
   CanvasHTMLAttributes,
   MouseEventHandler,
@@ -108,6 +108,7 @@ const MdxImage = ({ src, alt, className = "" }: MdxImageProps) => {
         decoding="async"
         alt={alt}
         className={c(...classNames)}
+        loading="eager"
       />
     </>
   );

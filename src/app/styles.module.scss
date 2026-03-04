@@ -1,0 +1,18 @@
+.not_found {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  > .not_found_img_container {
+    display: flex;
+    flex-flow: column;
+    // justify-content: center;
+
+    // > *:not(span) {
+    //   margin-inline: auto;
+    // }
+  }
+}

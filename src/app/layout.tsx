@@ -8,6 +8,8 @@ import "@/styling/globals.scss";
 import { c, MetaType } from "@/lib/utils";
 import JotaiProvider from "./jotaiProvider";
 import fs from "node:fs/promises";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const arimo = Arimo({
   variable: "--font-arimo",
@@ -62,7 +64,9 @@ export default async function RootLayout({
             arimo.variable,
           )}
         >
+          <Header />
           {children}
+          <Footer />
           <Analytics />
         </body>
       </html>

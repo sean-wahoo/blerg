@@ -1,7 +1,7 @@
 "use client";
 import { Provider } from "jotai";
 import { HydrationBoundary } from "jotai-ssr";
-import { pagesAtom, PageMetadata } from "@/stores/pages";
+import { pagesAtom } from "@/stores/pages";
 import { MetaType } from "@/lib/utils";
 
 export default function JotaiProvider({

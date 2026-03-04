@@ -1,5 +1,4 @@
 "use server";
-import { ImageLoader } from "next/image";
 import fs from "node:fs/promises";
 
 export const getMDXPages = async () => {
