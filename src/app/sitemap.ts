@@ -11,14 +11,14 @@ export default async function sitemap(props: {
   const metadata = await getPageMetadata(page);
   const sitemaps = [
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
       lastModified: new Date(),
     },
   ];
 
   sitemaps.push(
     ...metadata.map((meta) => ({
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${meta.page}`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${meta.page}`,
       lastModified: new Date(meta.date),
       changeFrequency: "never",
       priority: 0.6,
