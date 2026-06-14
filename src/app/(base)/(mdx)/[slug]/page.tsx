@@ -1,6 +1,7 @@
 import { getMDXPages } from "@/lib/utils";
 import { Metadata } from "next";
 import { cache } from "react";
+import styles from "./slug.module.scss";
 
 interface PathProps {
   slug: string;
@@ -27,7 +28,7 @@ const MDXPage = async ({ params }: { params: Promise<PathProps> }) => {
   return (
     <section>
       <header>
-        <h1>{metadata.title}</h1>
+        <h1 className={styles.meta_title}>{metadata.title}</h1>
         <p>
           {new Date(metadata.date).toLocaleDateString("en-US", {
             dateStyle: "long",
@@ -43,9 +44,11 @@ const MDXPage = async ({ params }: { params: Promise<PathProps> }) => {
 
 export default MDXPage;
 
-export async function generateMetadata(
-  { params }: { params: Promise<PathProps> },
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<PathProps>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const { metadata } = await getPageData(slug);
 
