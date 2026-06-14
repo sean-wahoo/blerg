@@ -10,6 +10,7 @@ import JotaiProvider from "./jotaiProvider";
 import fs from "node:fs/promises";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import AngularBackground from "@/components/shapes";
 
 const arimo = Arimo({
   variable: "--font-arimo",
@@ -64,6 +65,7 @@ export default async function RootLayout({
             arimo.variable,
           )}
         >
+          <AngularBackground />
           <Header />
           {children}
           <Footer />

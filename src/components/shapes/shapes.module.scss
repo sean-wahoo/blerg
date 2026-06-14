@@ -1,0 +1,61 @@
+@use "@/styling/colors.scss" as c;
+
+$indigo_tint: rgba(99, 102, 241, 0.1);
+$teal_tint: rgba(16, 185, 129, 0.1);
+$cyan_tint: rgba(6, 182, 212, 0.1);
+
+.backgroundContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -10;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.shape {
+  position: absolute;
+  fill: currentColor;
+}
+
+.topRightWedge {
+  top: -3rem;
+  right: -3rem;
+  width: 350px;
+  height: 350px;
+  color: $indigo_tint;
+}
+
+.midLeftPolygon {
+  top: 35%;
+  left: -4rem;
+  width: 250px;
+  height: 350px;
+  color: $teal_tint;
+}
+
+.bottomRightMatrix {
+  bottom: -6rem;
+  right: -3rem;
+  width: 400px;
+  height: 400px;
+  color: $cyan_tint;
+}
+
+@media (min-width: 768px) {
+  .topRightWedge {
+    width: 600px;
+    height: 600px;
+  }
+  .midLeftPolygon {
+    width: 400px;
+    height: 500px;
+  }
+  .bottomRightMatrix {
+    width: 700px;
+    height: 700px;
+  }
+}
