@@ -52,6 +52,10 @@ div.page_item {
     justify-content: space-between;
     align-items: baseline;
 
+    h4 {
+      margin-right: 0.8rem;
+    }
+
     > p {
       font-size: 0.675rem;
     }
