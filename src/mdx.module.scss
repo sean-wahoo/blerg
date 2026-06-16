@@ -2,31 +2,37 @@
   font-size: var(--step-3);
   font-family: var(--font-domine);
 }
+
 .h2 {
   font-size: var(--step-2);
   font-family: var(--font-domine);
 }
+
 .h3 {
   font-size: var(--step-1);
   font-family: var(--font-domine);
 }
+
 .h4 {
   font-size: var(--step-0);
   font-family: var(--font-domine);
 }
+
 .h5 {
   font-size: 18px;
   font-family: var(--font-domine);
 }
+
 .h6 {
   font-size: 16px;
   font-family: var(--font-domine);
 }
+
 .img {
-  max-width: 500px;
   max-height: 500px;
   margin: 12px 0 18px;
 }
+
 .p {
   font-size: var(--step--1);
   font-family: var(--font-domine);
@@ -48,12 +54,15 @@
   flex-flow: column nowrap;
   margin: 18px;
   align-items: center;
+
   &:has(> img.center) {
     margin-inline: auto;
   }
+
   &:has(> img.right) {
     margin-inline: auto 0;
   }
+
   &:has(> img.left) {
     margin-inline: 0 auto;
   }
